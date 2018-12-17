@@ -21,21 +21,6 @@ student::student(student &s)
         group = s.group;
 };
 
-void student::setstudent()
-{
-        cout << "first name: ";
-        cin >> fname;
-        cout << "last name: ";
-        cin >> lname;
-        cout << "group: ";
-        cin >> group;
-        for (int i = 1; i <= 5; i++)
-        {
-            cout << "subject #" << i << " grade: ";
-            cin >> grade[i - 1];
-        }
-};
-
 int student::getgradesum()
 {
         int sum = 0;
@@ -44,14 +29,32 @@ int student::getgradesum()
         return sum;
 };
 
-void student::show()
-{
-        cout <<fname<<' '<<lname<< endl << group << endl << "Grades: "<<endl;
-        for (int i = 0; i < 5; i++)
-            cout << grade[i] << endl;
-};
-
 student::~student()
 {
         cout <<"Student deleted!"<<endl;
+};
+
+ostream& operator <<(ostream& output, student& pointer)
+{
+        cout <<pointer.fname<<' '<<pointer.lname<< endl << pointer.group << endl << "Grades: "<<endl;
+        for (int i = 0; i < 5; i++)
+            cout << pointer.grade[i] << endl;
+        return output;
+};
+
+void operator >>(istream& input, student& pointer)
+{
+
+
+        cout << "first name: ";
+        cin >> pointer.fname;
+        cout << "last name: ";
+        cin >> pointer.lname;
+        cout << "group: ";
+        cin >> pointer.group;
+        for (int i = 1; i <= 5; i++)
+        {
+            cout << "subject #" << i << " grade: ";
+            cin >> pointer.grade[i - 1];
+        }
 };

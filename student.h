@@ -1,5 +1,6 @@
 #pragma once
-
+#include <iostream>
+using namespace std;
 class student
 {
 private:
@@ -19,5 +20,9 @@ public:
     void show();
 
     ~student();
+
+    friend ostream& operator <<(ostream& output, student& pointer);
+
+	friend void operator >>(istream& input, student& pointer);
 
 };

@@ -23,7 +23,7 @@ list::list()
         for (int i = 0; i < amt; i++)
         {
             cout << "Student #"<<i+1<<":"<<endl;
-            l[i].setstudent();
+            cin >> l[i];
         }
         sort();
 };
@@ -64,7 +64,7 @@ void list::add()
         for (int i = 0; i < amt-1; i++)
             l[i] = lb[i];
         delete[]lb;
-        l[amt-1].setstudent();
+        cin >> l[amt-1];
 };
 
 void list::show()
@@ -72,6 +72,6 @@ void list::show()
     for (int i = 0; i < amt; i++)
     {
         cout << "Student #" << i + 1 << ":" << endl;
-        l[i].show();
+        cout << l[i];
     }
 };
