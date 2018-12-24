@@ -21,6 +21,11 @@ student::student(student &s)
         group = s.group;
 };
 
+int student::getgrade(int i)
+{
+    return grade[i];
+};
+
 int student::getgradesum()
 {
         int sum = 0;

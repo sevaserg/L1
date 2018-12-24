@@ -4,7 +4,7 @@
 class list
 {
 private:
-    int amt = 3;
+    int amt;
     student *l;
     student *lb;
 public:

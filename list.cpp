@@ -19,6 +19,7 @@ void list::sort()
 
 list::list()
 {
+    amt = 8;
         l = new student[amt];
         for (int i = 0; i < amt; i++)
         {
@@ -47,7 +48,7 @@ void list::del(int k)
     }
     catch(int k)
     {
-        cout<<"Error #"<<k<<"has occured: ";
+        cout<<"Error #"<<k<<" has occured: ";
         if (k == ERR_001) cout<<"there are no elements with negative number!"<<endl;
         if (k == ERR_002) cout<<"such element doesn't exist!"<<endl;
     }
@@ -69,9 +70,16 @@ void list::add()
 
 void list::show()
 {
+    int botamt = 0;
     for (int i = 0; i < amt; i++)
     {
-        cout << "Student #" << i + 1 << ":" << endl;
-        cout << l[i];
+        if (l[i].getgrade(0)>3&&l[i].getgrade(1)>3&&l[i].getgrade(2)>3&&l[i].getgrade(3)>3&&l[i].getgrade(4)>3)
+            {
+                cout << "Student #" << i + 1 << ":" << endl;
+                cout << l[i];
+                botamt++;
+            }
     }
+    if (botamt == 0)
+        cout<<"No students with grades 4 and 5 only!"<<endl;
 };

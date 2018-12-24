@@ -15,6 +15,8 @@ public:
 
     void setstudent();
 
+    int getgrade(int i);
+
     int getgradesum();
 
     void show();
